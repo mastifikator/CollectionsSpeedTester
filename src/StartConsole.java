@@ -215,7 +215,7 @@ public class StartConsole {
             while (!nextStep) {
                 System.out.println("\n################### CollectionsSpeedTester #####################");
                 System.out.println("########## Выбор колличества элементов при получении ##########");
-                System.out.print("Введите колличество добавляемых элементов (от 1 до 1kk):");
+                System.out.print("Введите колличество получаемых элементов (от 1 до 1kk):");
                 countGet = reader.readLine();
                 try {
                     if (Integer.parseInt(countGet) > 1 && Integer.parseInt(countGet) < 1_000_000)
