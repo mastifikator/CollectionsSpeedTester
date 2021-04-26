@@ -18,8 +18,8 @@ import java.util.*;
 public class StartConsole {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        String mainMenu = null;
-        String secondMenu = null;
+        String mainMenu;
+        String secondMenu;
         String choice = null;
         String typeVariable1 = null;
         String typeVariable2 = null;

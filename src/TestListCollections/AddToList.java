@@ -27,7 +27,8 @@ public class AddToList {
         int startElements = list.size();
         long start = System.nanoTime();
         for (int i = 0; i < addedList.size(); i++) {
-            list.add(addedList.get(i));
+            list.add(0, addedList.get(i));
+
         }
         long finish = System.nanoTime();
 
@@ -54,7 +55,7 @@ public class AddToList {
         int startElements = list.size();
         long start = System.nanoTime();
         for (int i = 0; i < addedList.size(); i++) {
-            list.add(0, addedList.get(i));
+            list.add(addedList.get(i));
         }
         long finish = System.nanoTime();
 
@@ -64,7 +65,6 @@ public class AddToList {
 
     public static void addToMiddle(List addedList, List array, String COLLECTION_TYPE) {
         List list;
-        List randomArray;
         String typeVariable = array.get(0).getClass().getSimpleName();
 
         //Определяем тип List оступившего на вход
