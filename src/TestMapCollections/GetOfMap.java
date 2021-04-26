@@ -12,13 +12,13 @@ public class GetOfMap {
         String typeValueVariable = iter.next().getValue().getClass().getSimpleName();
 
         //Определяем тип Map оступившей на вход
-        if(inMap instanceof HashMap){
+        if (inMap instanceof HashMap) {
             map = new HashMap(inMap);
-        }else if (inMap instanceof LinkedHashMap){
+        } else if (inMap instanceof LinkedHashMap) {
             map = new LinkedHashMap(inMap);
-        }else if (inMap instanceof TreeMap){
+        } else if (inMap instanceof TreeMap) {
             map = new TreeMap(inMap);
-        }  else {
+        } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип Map, используйте наследников Map");
         }
 

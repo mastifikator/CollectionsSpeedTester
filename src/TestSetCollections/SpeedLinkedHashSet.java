@@ -17,20 +17,20 @@ public class SpeedLinkedHashSet {
         System.out.printf("\nТестируем скорость операций добавления элементов в %s \n", COLLECTION_TYPE);
         System.out.println("--------------------------------------------------");
 
-            AddToSet.add(addedSet, linkedHashSet, COLLECTION_TYPE);
+        AddToSet.add(addedSet, linkedHashSet, COLLECTION_TYPE);
     }
 
     public void get(int countOperationsGet) {
         System.out.printf("\nТестируем скорость операций получения элементов из %s \n", COLLECTION_TYPE);
         System.out.println("--------------------------------------------------");
 
-            GetOfSet.get(countOperationsGet, linkedHashSet, COLLECTION_TYPE);
+        GetOfSet.get(countOperationsGet, linkedHashSet, COLLECTION_TYPE);
     }
 
     public void remove(int countOperationsRemove) {
         System.out.printf("\nТестируем скорость операций удаления элементов из %s \n", COLLECTION_TYPE);
         System.out.println("--------------------------------------------------");
 
-            RemoveOfSet.remove(countOperationsRemove, linkedHashSet, COLLECTION_TYPE);
-        }
+        RemoveOfSet.remove(countOperationsRemove, linkedHashSet, COLLECTION_TYPE);
     }
+}

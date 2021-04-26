@@ -16,7 +16,7 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class StartConsole {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String mainMenu = null;
         String secondMenu = null;
@@ -29,7 +29,7 @@ public class StartConsole {
         String countDel = null;
 
         boolean newInput = true;
-        while(newInput) {
+        while (newInput) {
             mainMenu = null;
             secondMenu = null;
             choice = null;
@@ -194,7 +194,9 @@ public class StartConsole {
                 try {
                     if (Integer.parseInt(countOperation) > 1 && Integer.parseInt(countOperation) < 1_000_000)
                         nextStep = true;
-                } catch (NumberFormatException e) {e.printStackTrace();}
+                } catch (NumberFormatException e) {
+                    e.printStackTrace();
+                }
             }
 
             nextStep = false;
@@ -266,62 +268,62 @@ public class StartConsole {
             }
         }
 
-        switch(choice){
-            case("ArrayList") : {
-                RandomArrayListGenerator random =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomAdd =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+        switch (choice) {
+            case ("ArrayList"): {
+                RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
                 SpeedArrayList test = new SpeedArrayList(random.getList());
                 test.add(randomAdd.getList());
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("LinkedList") : {
-                RandomArrayListGenerator random =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomAdd =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+            case ("LinkedList"): {
+                RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
                 SpeedLinkedList test = new SpeedLinkedList(new LinkedList(random.getList()));
                 test.add(randomAdd.getList());
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("Vector") : {
-                RandomArrayListGenerator random =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomAdd =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+            case ("Vector"): {
+                RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
                 SpeedVector test = new SpeedVector(new Vector(random.getList()));
                 test.add(randomAdd.getList());
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("HashSet") : {
-                RandomArrayListGenerator random =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomAdd =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+            case ("HashSet"): {
+                RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
                 SpeedHashSet test = new SpeedHashSet(new HashSet(random.getList()));
                 test.add(new HashSet(randomAdd.getList()));
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("LinkedHashSet") : {
-                RandomArrayListGenerator random =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomAdd =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+            case ("LinkedHashSet"): {
+                RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
                 SpeedLinkedHashSet test = new SpeedLinkedHashSet(new LinkedHashSet(random.getList()));
                 test.add(new LinkedHashSet(randomAdd.getList()));
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("TreeSet") : {
-                RandomArrayListGenerator random =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomAdd =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+            case ("TreeSet"): {
+                RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
                 SpeedTreeSet test = new SpeedTreeSet(new TreeSet(random.getList()));
                 test.add(new TreeSet(randomAdd.getList()));
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("HashMap") : {
-                RandomArrayListGenerator randomKey =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomValue =  new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
+            case ("HashMap"): {
+                RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
                 HashMap random = ArrayListsToMap.merge(randomKey.getList(), randomValue.getList());
 
-                RandomArrayListGenerator randomAddKey =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
-                RandomArrayListGenerator randomAddValue =  new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
                 HashMap randomAdd = ArrayListsToMap.merge(randomAddKey.getList(), randomAddValue.getList());
 
                 SpeedHashMap test = new SpeedHashMap(random);
@@ -329,13 +331,13 @@ public class StartConsole {
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("LinkedHashMap") : {
-                RandomArrayListGenerator randomKey =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomValue =  new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
+            case ("LinkedHashMap"): {
+                RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
                 LinkedHashMap random = new LinkedHashMap(ArrayListsToMap.merge(randomKey.getList(), randomValue.getList()));
 
-                RandomArrayListGenerator randomAddKey =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
-                RandomArrayListGenerator randomAddValue =  new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
                 LinkedHashMap randomAdd = new LinkedHashMap(ArrayListsToMap.merge(randomAddKey.getList(), randomAddValue.getList()));
 
                 SpeedLinkedHashMap test = new SpeedLinkedHashMap(random);
@@ -343,13 +345,13 @@ public class StartConsole {
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
             }
-            case("TreeMap") : {
-                RandomArrayListGenerator randomKey =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
-                RandomArrayListGenerator randomValue =  new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
+            case ("TreeMap"): {
+                RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
                 TreeMap random = new TreeMap(ArrayListsToMap.merge(randomKey.getList(), randomValue.getList()));
 
-                RandomArrayListGenerator randomAddKey =  new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
-                RandomArrayListGenerator randomAddValue =  new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
                 HashMap randomAdd = ArrayListsToMap.merge(randomAddKey.getList(), randomAddValue.getList());
 
                 SpeedTreeMap test = new SpeedTreeMap(random);

@@ -11,13 +11,13 @@ public class GetOfSet {
         String typeVariable = iter.next().getClass().getSimpleName();
 
         //Определяем тип Set оступившего на вход
-        if(inSet instanceof HashSet){
+        if (inSet instanceof HashSet) {
             set = new HashSet(inSet);
-        }else if (inSet instanceof LinkedHashSet){
+        } else if (inSet instanceof LinkedHashSet) {
             set = new LinkedHashSet(inSet);
-        }else if (inSet instanceof SortedSet){
+        } else if (inSet instanceof SortedSet) {
             set = new TreeSet(inSet);
-        }  else {
+        } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип Set, используйте наследников Set");
         }
 

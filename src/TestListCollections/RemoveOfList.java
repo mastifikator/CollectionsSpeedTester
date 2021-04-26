@@ -1,4 +1,5 @@
 package TestListCollections;
+
 import java.util.*;
 
 public class RemoveOfList {
@@ -9,13 +10,13 @@ public class RemoveOfList {
         String typeVariable = array.get(0).getClass().getSimpleName();
 
         //Определяем тип List оступившего на вход
-        if(array instanceof ArrayList){
+        if (array instanceof ArrayList) {
             list = new ArrayList(array);
-        }else if (array instanceof LinkedList){
+        } else if (array instanceof LinkedList) {
             list = new LinkedList(array);
-        } else if (array instanceof Vector){
+        } else if (array instanceof Vector) {
             list = new Vector(array);
-        } else{
+        } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип List, используйте ArrayList или inkedList");
         }
 
