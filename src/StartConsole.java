@@ -30,6 +30,15 @@ public class StartConsole {
 
         boolean newInput = true;
         while(newInput) {
+            mainMenu = null;
+            secondMenu = null;
+            choice = null;
+            typeVariable1 = null;
+            typeVariable2 = null;
+            countOperation = null;
+            countAdd = null;
+            countGet = null;
+            countDel = null;
 
             boolean nextStep = false;
             while (!nextStep) {
