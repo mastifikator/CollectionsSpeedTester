@@ -3,9 +3,7 @@ import Randomizer.RandomArrayListGenerator;
 import TestListCollections.SpeedArrayList;
 import TestListCollections.SpeedLinkedList;
 import TestListCollections.SpeedVector;
-import TestMapCollections.SpeedHashMap;
-import TestMapCollections.SpeedLinkedHashMap;
-import TestMapCollections.SpeedTreeMap;
+import TestMapCollections.*;
 import TestSetCollections.SpeedHashSet;
 import TestSetCollections.SpeedLinkedHashSet;
 import TestSetCollections.SpeedTreeSet;
@@ -63,6 +61,7 @@ public class StartConsole {
                     System.out.println("3. Vector");
                     System.out.print("Выберите тип List который будем тестировать (1 - 3):");
                     secondMenu = reader.readLine();
+                    if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3")) nextStep = true;
                 } else if (mainMenu.equals("2")) {
                     System.out.println("#################### Выбор типа Set #####################");
                     System.out.println("1. HashSet");
@@ -70,15 +69,19 @@ public class StartConsole {
                     System.out.println("3. TreeSet");
                     System.out.print("Выберите тип Set который будем тестировать (1 - 3):");
                     secondMenu = reader.readLine();
+                    if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3")) nextStep = true;
                 } else if (mainMenu.equals("3")) {
                     System.out.println("#################### Выбор типа Map #####################");
                     System.out.println("1. HashMap");
                     System.out.println("2. LinkedHashMap");
                     System.out.println("3. TreeMap");
-                    System.out.print("Выберите тип Map который будем тестировать (1 - 3):");
+                    System.out.println("4. WeakHashMap");
+                    System.out.println("5. IdentityHashMap");
+                    System.out.print("Выберите тип Map который будем тестировать (1 - 5):");
                     secondMenu = reader.readLine();
+                    if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3")
+                            || secondMenu.equals("4") || secondMenu.equals("5")) nextStep = true;
                 }
-                if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3")) nextStep = true;
             }
 
             switch (mainMenu) {
@@ -116,6 +119,12 @@ public class StartConsole {
                             break;
                         case ("3"):
                             choice = "TreeMap";
+                            break;
+                        case ("4"):
+                            choice = "WeakHashMap";
+                            break;
+                        case ("5"):
+                            choice = "IdentityHashMap";
                             break;
                     }
             }
@@ -355,6 +364,34 @@ public class StartConsole {
                 HashMap randomAdd = ArrayListsToMap.merge(randomAddKey.getList(), randomAddValue.getList());
 
                 SpeedTreeMap test = new SpeedTreeMap(random);
+                test.add(randomAdd);
+                test.get(Integer.parseInt(countGet));
+                test.remove(Integer.parseInt(countDel));
+            }
+            case ("WeakHashMap"): {
+                RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
+                WeakHashMap random = new WeakHashMap(ArrayListsToMap.merge(randomKey.getList(), randomValue.getList()));
+
+                RandomArrayListGenerator randomAddKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
+                HashMap randomAdd = ArrayListsToMap.merge(randomAddKey.getList(), randomAddValue.getList());
+
+                SpeedWeakHashMap test = new SpeedWeakHashMap(random);
+                test.add(randomAdd);
+                test.get(Integer.parseInt(countGet));
+                test.remove(Integer.parseInt(countDel));
+            }
+            case ("IdentityHashMap"): {
+                RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
+                IdentityHashMap random = new IdentityHashMap(ArrayListsToMap.merge(randomKey.getList(), randomValue.getList()));
+
+                RandomArrayListGenerator randomAddKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+                RandomArrayListGenerator randomAddValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countAdd), true);
+                HashMap randomAdd = ArrayListsToMap.merge(randomAddKey.getList(), randomAddValue.getList());
+
+                SpeedIdentityHashMap test = new SpeedIdentityHashMap(random);
                 test.add(randomAdd);
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));

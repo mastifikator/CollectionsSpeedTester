@@ -18,6 +18,10 @@ public class AddToMap {
             map = new LinkedHashMap(inMap);
         } else if (inMap instanceof TreeMap) {
             map = new TreeMap(inMap);
+        }else if (inMap instanceof WeakHashMap) {
+            map = new WeakHashMap(inMap);
+        }else if (inMap instanceof IdentityHashMap) {
+            map = new IdentityHashMap(inMap);
         } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип Map, используйте наследников Map");
         }
