@@ -16,6 +16,8 @@ public class RemoveOfList {
             list = new LinkedList(array);
         } else if (array instanceof Vector) {
             list = new Vector(array);
+        }else if (array instanceof Stack) {
+            list = array;
         } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип List, используйте ArrayList или inkedList");
         }

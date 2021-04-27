@@ -1,9 +1,6 @@
 package TestListCollections;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Vector;
+import java.util.*;
 
 public class AddToList {
     static String outPrint = "В %s было %d элементов %s, %s %d, осталось %d, заняло %o нс \n";
@@ -19,6 +16,8 @@ public class AddToList {
             list = new LinkedList(array);
         } else if (array instanceof Vector) {
             list = new Vector(array);
+        } else if (array instanceof Stack) {
+            list = array;
         } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип List, используйте наследников List");
         }
@@ -47,6 +46,8 @@ public class AddToList {
             list = new LinkedList(array);
         } else if (array instanceof Vector) {
             list = new Vector(array);
+        }else if (array instanceof Stack) {
+            list = array;
         } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип List, используйте наследников List");
         }
@@ -74,6 +75,8 @@ public class AddToList {
             list = new LinkedList(array);
         } else if (array instanceof Vector) {
             list = new Vector(array);
+        }else if (array instanceof Stack) {
+            list = array;
         } else {
             throw new IllegalArgumentException("Введен не поддерживаемый тип List, используйте наследников List");
         }

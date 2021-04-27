@@ -2,6 +2,7 @@ import Randomizer.ArrayListsToMap;
 import Randomizer.RandomArrayListGenerator;
 import TestListCollections.SpeedArrayList;
 import TestListCollections.SpeedLinkedList;
+import TestListCollections.SpeedStack;
 import TestListCollections.SpeedVector;
 import TestMapCollections.*;
 import TestSetCollections.SpeedHashSet;
@@ -59,9 +60,10 @@ public class StartConsole {
                     System.out.println("1. ArrayList");
                     System.out.println("2. LinkedList");
                     System.out.println("3. Vector");
-                    System.out.print("Выберите тип List который будем тестировать (1 - 3):");
+                    System.out.println("4. Stack");
+                    System.out.print("Выберите тип List который будем тестировать (1 - 4):");
                     secondMenu = reader.readLine();
-                    if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3")) nextStep = true;
+                    if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3") || secondMenu.equals("4")) nextStep = true;
                 } else if (mainMenu.equals("2")) {
                     System.out.println("#################### Выбор типа Set #####################");
                     System.out.println("1. HashSet");
@@ -79,8 +81,7 @@ public class StartConsole {
                     System.out.println("5. IdentityHashMap");
                     System.out.print("Выберите тип Map который будем тестировать (1 - 5):");
                     secondMenu = reader.readLine();
-                    if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3")
-                            || secondMenu.equals("4") || secondMenu.equals("5")) nextStep = true;
+                    if (secondMenu.equals("1") || secondMenu.equals("2") || secondMenu.equals("3") || secondMenu.equals("4") || secondMenu.equals("5")) nextStep = true;
                 }
             }
 
@@ -96,7 +97,10 @@ public class StartConsole {
                         case ("3"):
                             choice = "Vector";
                             break;
-                    }
+                        case ("4"):
+                            choice = "Stack";
+                            break;
+                    } break;
                 case ("2"):
                     switch (secondMenu) {
                         case ("1"):
@@ -108,7 +112,7 @@ public class StartConsole {
                         case ("3"):
                             choice = "TreeSet";
                             break;
-                    }
+                    } break;
                 case ("3"):
                     switch (secondMenu) {
                         case ("1"):
@@ -126,7 +130,7 @@ public class StartConsole {
                         case ("5"):
                             choice = "IdentityHashMap";
                             break;
-                    }
+                    } break;
             }
 
             nextStep = false;
@@ -285,7 +289,7 @@ public class StartConsole {
                 test.add(randomAdd.getList());
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("LinkedList"): {
                 RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
@@ -293,7 +297,7 @@ public class StartConsole {
                 test.add(randomAdd.getList());
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("Vector"): {
                 RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
@@ -301,7 +305,17 @@ public class StartConsole {
                 test.add(randomAdd.getList());
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
+            case ("Stack"): {
+                RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
+                RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
+                Stack stack = new Stack();
+                stack.addAll(random.getList());
+                SpeedStack test = new SpeedStack(stack);
+                test.add(randomAdd.getList());
+                test.get(Integer.parseInt(countGet));
+                test.remove(Integer.parseInt(countDel));
+            }break;
             case ("HashSet"): {
                 RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
@@ -309,7 +323,7 @@ public class StartConsole {
                 test.add(new HashSet(randomAdd.getList()));
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("LinkedHashSet"): {
                 RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
@@ -317,7 +331,7 @@ public class StartConsole {
                 test.add(new LinkedHashSet(randomAdd.getList()));
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("TreeSet"): {
                 RandomArrayListGenerator random = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomAdd = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countAdd), true);
@@ -325,7 +339,7 @@ public class StartConsole {
                 test.add(new TreeSet(randomAdd.getList()));
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("HashMap"): {
                 RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
@@ -339,7 +353,7 @@ public class StartConsole {
                 test.add(randomAdd);
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("LinkedHashMap"): {
                 RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
@@ -353,7 +367,7 @@ public class StartConsole {
                 test.add(randomAdd);
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("TreeMap"): {
                 RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
@@ -367,7 +381,7 @@ public class StartConsole {
                 test.add(randomAdd);
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("WeakHashMap"): {
                 RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
@@ -381,7 +395,7 @@ public class StartConsole {
                 test.add(randomAdd);
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
             case ("IdentityHashMap"): {
                 RandomArrayListGenerator randomKey = new RandomArrayListGenerator(typeVariable1, Integer.parseInt(countOperation), true);
                 RandomArrayListGenerator randomValue = new RandomArrayListGenerator(typeVariable2, Integer.parseInt(countOperation), true);
@@ -395,7 +409,7 @@ public class StartConsole {
                 test.add(randomAdd);
                 test.get(Integer.parseInt(countGet));
                 test.remove(Integer.parseInt(countDel));
-            }
+            }break;
         }
     }
 }
