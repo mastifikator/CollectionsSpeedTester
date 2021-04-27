@@ -272,10 +272,21 @@ public class StartConsole {
 
                 System.out.print("Введите Да чтобы начать или Нет чтобы переопределить выбор: ");
                 String confirm = reader.readLine();
-                if (confirm.equals("Да")) {
+
+                if (Integer.parseInt(countGet) > Integer.parseInt(countOperation) || Integer.parseInt(countDel) > Integer.parseInt(countOperation)  ){
+                    System.out.println("\n################### CollectionsSpeedTester #####################");
+                    System.out.println("\n################### Некорректные данные #####################");
+                    System.out.println("Вами были введены не корректные значения колличества операций получения/удаления");
+                    System.out.println("Заданные значения превышают изначальное колличество элементов в коллекции");
+                    System.out.println("Необходимо переопределить данные, введите любой символ для возврата в начало");
+                    reader.readLine();
+                    confirm = "Нет";
+                }
+
+                if (confirm.toLowerCase(Locale.ROOT).equals("да")) {
                     newInput = false;
                     nextStep = true;
-                } else if (confirm.equals("Нет")) {
+                } else if (confirm.toLowerCase(Locale.ROOT).equals("нет")) {
                     nextStep = true;
                 }
             }
